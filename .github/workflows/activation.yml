@@ -9,8 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: webbertakken/unity-request-manual-activation-file@v2
-        id: getManualLicenseFile
+      - uses: game-ci/unity-builder@v4
+        with:
+          targetPlatform: WebGL
+          unityLicensingServer: ${{ secrets.UNITY_LICENSE_SERVER }}
 
       - uses: actions/upload-artifact@v4
         with:
